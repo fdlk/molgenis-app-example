@@ -1,30 +1,99 @@
-# molgenis-app-test
+# MOLGENIS test App
 
-> A Vue.js project
+This is the MOLGENIS test app. Used for demoing purposed and template for developing Apps in MOLGENIS.
 
-## Build Setup
+## Contributing
+There are 2 ways to test and develop in apps for MOLGENIS.
 
-``` bash
-# install dependencies
-npm install
+- locally without MOLGENIS
+- locally with MOLGENIS
 
-# serve with hot reload at localhost:8080
-npm run dev
+### Test locally without a running MOLGENIS instance
 
-# build for production with minification
-npm run build
+For local testing you can execute the following commands:
 
-# build for production and view the bundle analyzer report
-npm run build --report
+```bash
+# To install the application
+yarn install
 
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
+# To run develop mode
+yarn dev
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+It will render a local version of the core variable catalogue.
+
+#### Run unit tests
+You can run unit tests by executing this command:
+
+```bash
+# Run once
+yarn unit
+
+# Run in watch-mode
+yarn debug
+```
+
+#### Run end-to-end tests
+You can run end-to-end test locally by running the following command:
+
+```bash
+yarn e2e
+```
+
+### Test with a running MOLGENIS instance
+For local testing with a running MOLGENIS instance you have to alter the config of the app:
+
+Comment in the following block
+
+```config/index.js```
+
+```javascript
+module.exports = {
+  dev: {
+
+    // Paths
+    assetsSubDirectory: 'static',
+    assetsPublicPath: '/',
+    // Beginning of block
+    proxyTable: {
+      '/login': {
+        target: 'http://localhost:8080'
+      },
+      '/plugin/directory/export': {
+        target: 'http://localhost:8080'
+      },
+      '/api': {
+        target: 'http://localhost:8080'
+      }
+    },
+    // End of block
+```
+
+And comment out this block in the same file.
+
+
+```javascript
+/**
+ * GET and POST interceptors
+ * Removes the need for a running backend during development
+ */
+No mock data available
+```
+
+That is it. Run a molgenis instance on localhost:8080 and start the core variable catalogue with:
+
+```javascript
+yarn dev
+```
+
+## Build your MOLGENIS app
+
+See: [App developement documentation](https://molgenis.gitbooks.io/molgenis/content/developer_documentation/app-development.html)
+
+You can now create a working application that can be imported in MOLGENIS directly, by executing:
+
+```bash
+yarn build
+```
+
+You can find the zip-file in the ```dist/molgenis-app-test.zip```.
