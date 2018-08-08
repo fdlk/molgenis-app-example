@@ -59,9 +59,6 @@ module.exports = {
       '/login': {
         target: 'http://localhost:8080'
       },
-      '/plugin/directory/export': {
-        target: 'http://localhost:8080'
-      },
       '/api': {
         target: 'http://localhost:8080'
       }
