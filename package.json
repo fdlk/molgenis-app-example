@@ -1,7 +1,7 @@
 {
-  "name": "molgenis-app-test",
+  "name": "molgenis-app-example",
   "version": "1.0.0",
-  "description": "A Vue.js project",
+  "description": "An MOLGENIS App Manager example project",
   "author": "sido <sido@haakma.org>",
   "private": true,
   "scripts": {
