@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <img src="static/img/logo_molgenis.png"/>
     <router-view/>
   </div>
 </template>

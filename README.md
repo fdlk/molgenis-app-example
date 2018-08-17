@@ -1,6 +1,6 @@
 # MOLGENIS test App
 
-This is the MOLGENIS test app. Used for demoing purposed and template for developing Apps in MOLGENIS.
+This is the MOLGENIS example app. Used for demoing purposed and template for developing Apps in MOLGENIS.
 
 ## Contributing
 There are 2 ways to test and develop in apps for MOLGENIS.
