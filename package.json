@@ -1,9 +1,8 @@
 {
   "name": "molgenis-app-example",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "An MOLGENIS App Manager example project",
   "author": "sido <sido@haakma.org>",
-  "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
@@ -11,7 +10,12 @@
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "preversion": "yarn install; yarn unit; yarn build",
+    "postversion": "curl -v --user ${REGISTRY_CRED_USR}:${REGISTRY_CRED_PSW} --upload-file dist/$npm_package_name.zip  https://${REGISTRY}/repository/appstore/$npm_package_name/$npm_package_version/$npm_package_name.zip"
+  },
+  "config": {
+    "unsafe-perm": true
   },
   "dependencies": {
     "vue": "^2.5.2",
