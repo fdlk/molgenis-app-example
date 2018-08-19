@@ -14,9 +14,6 @@
     "preversion": "yarn install; yarn unit; yarn build",
     "postversion": "curl -v --user ${REGISTRY_CRED_USR}:${REGISTRY_CRED_PSW} --upload-file dist/$npm_package_name.zip  https://${REGISTRY}/repository/appstore/$npm_package_name/$npm_package_version/$npm_package_name.zip"
   },
-  "config": {
-    "unsafe-perm": true
-  },
   "dependencies": {
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
