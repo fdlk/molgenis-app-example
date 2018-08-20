@@ -99,12 +99,12 @@ pipeline {
         container('node') {
           sh "git config --global user.email molgenis+ci@gmail.com"
           sh "git config --global user.name molgenis-jenkins"
-          sh "git remote set-url origin https://${env.GITHUB_TOKEN}@github.com/${ORG}/${APP_NAME}.git"
+          sh "git remote set-url origin https://${GITHUB_TOKEN}@github.com/${ORG}/${APP_NAME}.git"
 
           sh "git checkout -f ${BRANCH_NAME}"
 
           sh "npm config set unsafe-perm true"
-          sh "npm version ${env.RELEASE_SCOPE} -m '[ci skip] [npm-version] %s'"
+          sh "npm version ${RELEASE_SCOPE} -m '[ci skip] [npm-version] %s'"
 
           sh "git push --tags origin ${BRANCH_NAME}"
         }
