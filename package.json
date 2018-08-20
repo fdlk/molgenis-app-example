@@ -1,6 +1,6 @@
 {
   "name": "molgenis-app-example",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "An MOLGENIS App Manager example project",
   "author": "sido <sido@haakma.org>",
   "scripts": {
