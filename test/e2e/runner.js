@@ -14,7 +14,7 @@ devConfigPromise.then(devConfig => {
   const compiler = webpack(webpackConfig)
   server = new DevServer(compiler, devServerOptions)
   const port = devServerOptions.port
-  const host = process.env.JENKINS_AGENT_NAME || devServerOptions.host
+  const host = devServerOptions.host
   return server.listen(port, host)
 })
 .then(() => {

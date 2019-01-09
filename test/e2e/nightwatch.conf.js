@@ -24,7 +24,7 @@ module.exports = {
       selenium_host: 'localhost',
       silent: true,
       globals: {
-        devServerURL: 'http://localhost:' + (process.env.PORT || config.dev.port)
+        devServerURL: 'http://' + (process.env.JENKINS_AGENT_NAME || config.dev.host) + ':' + (process.env.PORT || config.dev.port)
       }
     },
 
