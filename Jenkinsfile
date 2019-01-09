@@ -105,13 +105,12 @@ pipeline {
 
           sh "git push --tags origin ${BRANCH_NAME}"
 
-          hubotSend(message: '${env.REPOSITORY} has been successfully deployed on ${env.NPM_REGISTRY}.', status:'SUCCESS')
+          hubotSend(message: '${env.REPOSITORY} has been successfully deployed on ${env.REGISTRY}.', status:'SUCCESS')
         }
       }
     }
   }
   post {
-    // [ slackSend ]; has to be configured on the host, it is the "Slack Notification Plugin" that has to be installed
     success {
       hubotSend(message: 'Build success', status:'INFO', site: 'slack-pr-app-team')
     }
