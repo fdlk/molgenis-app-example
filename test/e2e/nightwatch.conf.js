@@ -2,6 +2,8 @@ require('babel-register')
 var config = require('../../config')
 const packageJson = require('../../package')
 
+const buildName = packageJson.name + '#PR-' + process.env.CHANGE_ID + '-build-' + process.env.BUILD_NUMBER
+
 // http://nightwatchjs.org/gettingstarted#settings-file
 module.exports = {
   src_folders: ['test/e2e/specs'],
@@ -37,7 +39,7 @@ module.exports = {
       access_key: process.env.SAUCE_CRED_PSW,
       desiredCapabilities: {
         name: packageJson.name,
-        build: packageJson.name + '#build-${BUILD_NUMBER}',
+        build: buildName,
         'tunnel-identifier': process.env.TUNNEL_IDENTIFIER,
         browserName: 'chrome'
       },
@@ -55,7 +57,7 @@ module.exports = {
       access_key: process.env.SAUCE_CRED_PSW,
       desiredCapabilities: {
         name: packageJson.name,
-        build: packageJson.name + '#build-${BUILD_NUMBER}',
+        build: buildName,
         'tunnel-identifier': process.env.TUNNEL_IDENTIFIER,
         browserName: 'firefox'
       },
@@ -73,7 +75,7 @@ module.exports = {
       access_key: process.env.SAUCE_CRED_PSW,
       desiredCapabilities: {
         name: packageJson.name,
-        build: packageJson.name + '#build-${BUILD_NUMBER}',
+        build: buildName,
         'tunnel-identifier': process.env.TUNNEL_IDENTIFIER,
         browserName: 'internet explorer',
         platform: 'Windows 10',
@@ -93,7 +95,7 @@ module.exports = {
       access_key: process.env.SAUCE_CRED_PSW,
       desiredCapabilities: {
         name: packageJson.name,
-        build: packageJson.name + '#build-${BUILD_NUMBER}',
+        build: buildName,
         'tunnel-identifier': process.env.TUNNEL_IDENTIFIER,
         browserName: 'safari'
       },
