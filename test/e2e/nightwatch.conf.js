@@ -21,7 +21,7 @@ module.exports = {
   test_settings: {
     default: {
       selenium_port: 4444,
-      selenium_host: 'localhost',
+      selenium_host: process.env.JENKINS_AGENT_NAME || config.dev.host,
       silent: true,
       globals: {
         devServerURL: 'http://' + (process.env.JENKINS_AGENT_NAME || config.dev.host) + ':' + (process.env.PORT || config.dev.port)
