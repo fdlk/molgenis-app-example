@@ -3,6 +3,7 @@ var config = require('../../config')
 const packageJson = require('../../package')
 
 const buildName = packageJson.name + '#PR-' + process.env.CHANGE_ID + '-build-' + process.env.BUILD_NUMBER
+const ciDevServer = 'http://' + process.env.JENKINS_AGENT_NAME + ':' + (process.env.PORT || config.dev.port)
 
 // http://nightwatchjs.org/gettingstarted#settings-file
 module.exports = {
@@ -44,6 +45,7 @@ module.exports = {
         browserName: 'chrome'
       },
       globals: {
+        devServerURL: ciDevServer,
         waitForConditionTimeout: 10000
       }
     },
@@ -62,6 +64,7 @@ module.exports = {
         browserName: 'firefox'
       },
       globals: {
+        devServerURL: ciDevServer,
         waitForConditionTimeout: 10000
       }
     },
@@ -82,6 +85,7 @@ module.exports = {
         version: '11.103',
       },
       globals: {
+        devServerURL: ciDevServer,
         waitForConditionTimeout: 10000
       }
     },
@@ -100,6 +104,7 @@ module.exports = {
         browserName: 'safari'
       },
       globals: {
+        devServerURL: ciDevServer,
         waitForConditionTimeout: 10000
       }
     },
